@@ -68,6 +68,22 @@ function setupSmoothScroll() {
 function setupCarouselAnimations() {
     const carousel = document.querySelector('#heroCarousel');
     
+    // Setup button click handling
+    document.querySelectorAll('.carousel-caption .btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const href = btn.getAttribute('href');
+            if (href) {
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    window.location.href = href;
+                }
+            }
+        });
+    });
+    
     if (carousel) {
         // Store original animation classes for each element
         const animatedElements = document.querySelectorAll('.animate__animated');

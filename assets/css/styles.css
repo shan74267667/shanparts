@@ -11,6 +11,7 @@ body {
     line-height: 1.6;
     padding-top: 76px;
     /* Account for fixed navbar */
+    overflow-x: hidden;
 }
 
 /* Typography */
@@ -166,17 +167,29 @@ p {
     }
 }
 
+.carousel-item {
+    height: 100vh;
+    background-color: #000;
+    position: relative;
+}
+
+.carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
 .carousel-item img {
     object-fit: cover;
     height: 100%;
     width: 100%;
     opacity: 0.7;
-    transition: transform 1.2s ease-in-out;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    pointer-events: none;
+    position: relative;
 }
 
 .carousel-item.active img {
@@ -185,14 +198,14 @@ p {
 
 .carousel-caption {
     position: absolute;
-    left: 50%;
     top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20px;
     width: 100%;
-    max-width: 1200px;
-    z-index: 10;
-    pointer-events: all;
+    max-width: 800px;
+    padding: 2rem;
+    text-align: center;
+    z-index: 2;
 }
 
 .carousel-caption .animate__animated {
@@ -343,30 +356,21 @@ p {
 }
 
 .carousel-caption .btn {
-    padding: 0.8rem 2rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
     position: relative;
-    border-radius: 50px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
+    min-width: 200px;
     z-index: 20;
-    border: none;
-    outline: none;
-    background: transparent;
-    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-caption .btn:hover {
+    transform: translateY(-2px);
 }
 
 .carousel-caption .btn-primary {
     background-color: #007bff;
     border: none;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
     color: white;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
 }
 
 .carousel-caption .btn-primary:hover,
@@ -402,9 +406,9 @@ p {
 
 .carousel-caption .btn-outline-light {
     border: 2px solid rgba(255, 255, 255, 0.8);
+    color: white;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
-    color: white;
 }
 
 .carousel-caption .btn-outline-light:hover,

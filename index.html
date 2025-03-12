@@ -86,37 +86,24 @@
     <!-- Hero Carousel -->
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
             <!-- Slide 1 -->
             <div class="carousel-item active">
-                <div class="animated-bg"></div>
-                <img src="https://unsplash.com/photos/a-view-of-a-mountain-range-with-clouds-below-iXXHy0wTK2c"
-                    class="d-block w-100" alt="Auto Parts">
+                <img src="https://source.unsplash.com/1600x900/?auto,parts" class="d-block w-100" alt="Auto Parts">
                 <div class="carousel-caption">
-                    <div class="caption-background animate__animated animate__fadeIn">
-                        <div class="icon-wrapper animate__animated animate__rotateIn animate__delay-500ms">
-                            <i class="fa-solid fa-cogs fa-spin-pulse"></i>
-                        </div>
-                        <h2 class="animate__animated animate__fadeInDown">
-                            Quality Auto Parts
-                        </h2>
-                        <p class="animate__animated animate__fadeInUp animate__delay-1s">
-                            Discover our extensive collection of premium auto parts
-                        </p>
-                        <div class="button-group">
-                            <button onclick="window.location.href='products.html'" type="button"
-                                class="btn btn-primary animate__animated animate__bounceIn animate__delay-2s">
-                                <i class="fa-solid fa-shopping-cart"></i> Shop Now
-                            </button>
-                            <button onclick="window.location.href='#features'" type="button"
-                                class="btn btn-outline-light ms-3 animate__animated animate__bounceIn animate__delay-2s">
-                                <i class="fa-solid fa-star"></i> Features
-                            </button>
-                        </div>
+                    <h2>Quality Auto Parts</h2>
+                    <p>Discover our extensive collection of premium auto parts</p>
+                    <div class="mt-4">
+                        <a href="products.html" class="link-light text-decoration-none mx-2 p-3 border border-2 rounded-pill">
+                            <i class="fa-solid fa-shopping-cart me-2"></i>Shop Now
+                        </a>
+                        <a href="#features" class="link-light text-decoration-none mx-2 p-3 border border-2 rounded-pill">
+                            <i class="fa-solid fa-star me-2"></i>Features
+                        </a>
                     </div>
                 </div>
             </div>
