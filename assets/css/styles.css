@@ -1,0 +1,573 @@
+/* Global Reset and Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base Body Styles */
+body {
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 1.6;
+    padding-top: 76px;
+    /* Account for fixed navbar */
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+}
+
+p {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand {
+    position: relative;
+}
+
+.navbar-brand::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #007bff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover::after {
+    transform: scaleX(1);
+}
+
+.navbar-brand img {
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.05);
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 400;
+    padding: 0.5rem 1rem !important;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: -100%;
+    background: linear-gradient(90deg, transparent, #007bff, transparent);
+    transition: left 0.3s ease;
+}
+
+.nav-link:hover::before {
+    left: 0;
+}
+
+.nav-link i {
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff !important;
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+.nav-link:hover i {
+    transform: translateX(3px) rotate(5deg);
+}
+
+/* Hero Carousel Styling */
+#heroCarousel {
+    margin-top: -76px;
+    /* Offset for navbar */
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-item {
+    height: 100vh;
+    min-height: 600px;
+    background: #000;
+    position: relative;
+    overflow: visible;
+}
+
+.carousel-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.carousel-caption {
+    position: static;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.animated-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+    animation: gradientMove 8s ease infinite;
+    pointer-events: none;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.carousel-item img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    opacity: 0.7;
+    transition: transform 1.2s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.carousel-item.active img {
+    transform: scale(1.05);
+}
+
+.carousel-caption {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    z-index: 10;
+    pointer-events: all;
+}
+
+.carousel-caption .animate__animated {
+    animation-fill-mode: both;
+    opacity: 1;
+}
+
+.caption-background {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    padding: 2rem;
+    backdrop-filter: blur(5px);
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 50;
+}
+
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.icon-wrapper i {
+    transition: all 0.3s ease;
+}
+
+.icon-wrapper:hover i {
+    transform: scale(1.2);
+    color: #007bff;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Animation Duration Adjustments */
+.animate__animated {
+    --animate-duration: 800ms;
+}
+
+.animate__animated.animate__slower {
+    --animate-duration: 1.5s;
+}
+
+.animate__delay-500ms {
+    --animate-delay: 300ms;
+}
+
+.animate__delay-1s {
+    --animate-delay: 600ms;
+}
+
+.animate__delay-2s {
+    --animate-delay: 900ms;
+}
+
+/* Animation Persistence */
+.carousel-caption .animate__animated {
+    animation-fill-mode: both;
+}
+
+.carousel-item.active .animate__animated {
+    animation-fill-mode: both;
+}
+
+/* Ensure animations complete */
+.carousel {
+    min-height: 100vh;
+}
+
+/* Font Awesome Animation Adjustments */
+.fa-spin-pulse {
+    --fa-animation-duration: 3s;
+    --fa-animation-iteration-count: infinite;
+    --fa-animation-timing: ease-in-out;
+}
+
+.fa-bounce {
+    --fa-animation-duration: 1.5s;
+    --fa-bounce-start-scale-x: 1;
+    --fa-bounce-start-scale-y: 1;
+    --fa-bounce-jump-scale-x: 1;
+    --fa-bounce-jump-scale-y: 1.1;
+    --fa-bounce-land-scale-x: 1;
+    --fa-bounce-land-scale-y: 1;
+    --fa-animation-iteration-count: infinite;
+    --fa-animation-timing: ease-in-out;
+}
+
+.fa-spin {
+    --fa-animation-duration: 15s;
+    --fa-animation-iteration-count: infinite;
+    --fa-animation-timing: linear;
+}
+
+/* Transition Timing Adjustments */
+.carousel-item img {
+    transition: transform 1s ease-out;
+}
+
+.icon-wrapper i {
+    transition: all 0.4s ease-in-out;
+}
+
+.carousel-caption .btn::before {
+    transition: all 0.4s ease-in-out;
+}
+
+/* Background Animation Adjustments */
+.animated-bg {
+    animation: gradientMove 12s ease infinite;
+    background-size: 200% 200%;
+}
+
+/* Carousel Transition Speed */
+.carousel-item {
+    transition: transform 0.8s ease-in-out;
+}
+
+/* Carousel Caption Styling */
+.carousel-caption h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    opacity: 0;
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+}
+
+.carousel-caption .btn {
+    padding: 0.8rem 2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    z-index: 20;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+}
+
+.carousel-caption .btn-primary {
+    background-color: #007bff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    color: white;
+}
+
+.carousel-caption .btn-primary:hover,
+.carousel-caption .btn-primary:focus,
+.carousel-caption .btn-primary:active {
+    background-color: #0056b3;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+.carousel-caption .btn-primary:hover,
+.carousel-caption .btn-primary:focus,
+.carousel-caption .btn-primary:active {
+    background-color: #0056b3;
+    color: white;
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.carousel-caption .btn-primary:hover,
+.carousel-caption .btn-primary:focus {
+    background-color: #0056b3;
+    color: white;
+    text-decoration: none;
+}
+
+.carousel-caption .btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+.carousel-caption .btn-outline-light {
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    color: white;
+}
+
+.carousel-caption .btn-outline-light:hover,
+.carousel-caption .btn-outline-light:focus,
+.carousel-caption .btn-outline-light:active {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+    border-color: white;
+}
+
+.carousel-caption .btn-outline-light:hover,
+.carousel-caption .btn-outline-light:focus,
+.carousel-caption .btn-outline-light:active {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+.carousel-caption .btn-outline-light:hover,
+.carousel-caption .btn-outline-light:focus {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    border-color: white;
+}
+
+.carousel-caption .btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+.carousel-caption .btn i {
+    transition: transform 0.3s ease;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.carousel-caption .btn:hover i {
+    transform: translateX(3px) rotate(5deg);
+}
+
+.carousel-caption .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: all 0.5s ease;
+}
+
+.carousel-caption .btn:hover::before {
+    left: 100%;
+    transition: all 0.5s ease;
+}
+
+.carousel-caption .btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 50px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.carousel-caption .btn:hover::after {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.carousel-caption .btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Carousel Controls */
+.carousel-indicators {
+    bottom: 50px;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicators button.active {
+    background-color: #fff;
+    transform: scale(1.2);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.carousel-control-next:hover {
+    background: linear-gradient(-90deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Main Content Area */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: #f8f8f8;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 300;
+    position: relative;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .carousel-caption h2 {
+        font-size: 2rem;
+    }
+
+    .carousel-caption p {
+        font-size: 1rem;
+    }
+
+    .carousel-caption .btn {
+        padding: 0.6rem 1.5rem;
+    }
+
+    .carousel-item {
+        min-height: 500px;
+    }
+
+    .animate__delay-1s {
+        --animate-delay: 0.3s;
+    }
+
+    .animate__delay-2s {
+        --animate-delay: 0.6s;
+    }
+}
